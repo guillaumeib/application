@@ -1,0 +1,38 @@
+Formulaire
+
+    numéro usager -> 12 chiffres
+    date de naissance -> jour mois année côté front
+    secteur d'activité -> liste déroulante chargée depuis une autre entité
+    code postal
+    commune -> liste déroulante, apparait sur saisie du cp, donnée chargée en ajax en fonction du cp
+    scan du passeport -> fichier
+    recevoir les actualités -> checkbox
+    email -> à afficher que si la checkbox est cochée, idem validation
+
+Sur soumission valide du formulaire :
+    valider
+    uploader le fichier
+    sauvegarder l'application
+    lui envoyer un email de confirmation si email fourni
+
+Entités :
+    application
+        userNumber      string 12
+        birthdate       date
+        activity        -> relation
+        city            -> relation
+        passport        -> relation
+        receiveNews     -> boolean
+        email           string 255 nullable
+        dateCreated     datetime
+
+    city
+        name            string 255
+        insee           string 50
+        zip             string 5
+
+    passport
+        filename        string 255
+
+    activity
+        name            string 255
